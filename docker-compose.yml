@@ -9,6 +9,7 @@ volumes:
   langfuse_minio_data:
   langfuse_postgres_data:
   letta_data:
+  lightrag_data:
   libretranslate_api_keys:
   libretranslate_models:
   n8n_storage:
@@ -231,6 +232,7 @@ services:
       - LT_HOSTNAME=${LT_HOSTNAME}
       - LT_USERNAME=${LT_USERNAME}
       - LT_PASSWORD_HASH=${LT_PASSWORD_HASH}
+      - LIGHRAG_HOSTNAME=${LIGHRAG_HOSTNAME}
       - N8N_HOSTNAME=${N8N_HOSTNAME}
       - NEO4J_HOSTNAME=${NEO4J_HOSTNAME}
       - WAHA_HOSTNAME=${WAHA_HOSTNAME}
@@ -806,3 +808,28 @@ services:
         condition: service_healthy
       postgres:
         condition: service_healthy
+
+  lightrag:
+    image: ghcr.io/hkuds/lightrag:latest
+    container_name: lightrag
+    profiles: ["lightrag"]
+    restart: unless-stopped
+    environment:
+      - LIGHRAG_CONFIG=/app/config.yaml
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://ollama:11434}
+    volumes:
+      - ./lightrag/config.yaml:/app/config.yaml:ro
+      - lightrag_data:/app/data
+      - ./shared:/data/shared
+    ports:
+      - "9621:9621"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9621/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

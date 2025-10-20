@@ -59,6 +59,7 @@ base_services_data=(
     "langfuse" "Langfuse Suite (AI Observability - includes Clickhouse, Minio)"
     "letta" "Letta (Agent Server & SDK)"
     "libretranslate" "LibreTranslate (Self-hosted translation API - 50+ languages)"
+    "lightrag" "LightRAG (Simple and Fast Retrieval-Augmented Generation)"
     "monitoring" "Monitoring Suite (Prometheus, Grafana, cAdvisor, Node-Exporter)"
     "n8n" "n8n, n8n-worker, n8n-import (Workflow Automation)"
     "neo4j" "Neo4j (Graph Database)"

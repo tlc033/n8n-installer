@@ -44,6 +44,8 @@ The installer also makes the following powerful open-source tools **available fo
 
 ✅ [**LibreTranslate**](https://docs.libretranslate.com/) - Self-hosted translation API (50+ languages).
 
+✅ [**LightRAG**](https://github.com/HKUDS/LightRAG) - Simple and Fast Retrieval-Augmented Generation with knowledge graph construction and reasoning capabilities.
+
 ✅ [**Neo4j**](https://neo4j.com/) - A graph database management system that allows you to model, store, and query data as a network of nodes and relationships.
 
 ✅ [**Ollama**](https://ollama.com/) - Run Llama 3, Mistral, Gemma, and other large language models locally.
@@ -143,6 +145,7 @@ After successful installation, your services are up and running! Here's how to g
     - **Langfuse:** `langfuse.yourdomain.com`
     - **Letta:** `letta.yourdomain.com`
     - **LibreTranslate:** `translate.yourdomain.com`
+    - **LightRAG:** `lightrag.yourdomain.com`
     - **Neo4j:** `neo4j.yourdomain.com`
     - **Open WebUI:** `webui.yourdomain.com`
     - **PaddleOCR:** `paddleocr.yourdomain.com`
@@ -175,7 +178,8 @@ After successful installation, your services are up and running! Here's how to g
     - **Connect n8n with Vector Stores:** Use n8n to connect to Qdrant (accessible via its own endpoint if needed, typically `qdrant.yourdomain.com`), Supabase, or Weaviate (`weaviate.yourdomain.com`) to store and retrieve information for your AI tasks like Retrieval Augmented Generation (RAG).
     - **Build with Flowise:** Access Flowise at `flowise.yourdomain.com` to create AI agents and applications. You can trigger Flowise agents from n8n or vice-versa.
     - **Interact with Open WebUI:** Use Open WebUI at `webui.yourdomain.com` as a chat interface for your local AI models or n8n agents (e.g., using the n8n_pipe integration if configured).
-    - **Configure LLMs:** If you wish to use large language models (LLMs) from providers like OpenAI, Anthropic, or locally via Ollama (if installed), you can easily configure credentials and connections within n8n nodes or in services like Flowise and Open WebUI.
+    - **Use LightRAG for Advanced RAG:** Access LightRAG at `lightrag.yourdomain.com` for sophisticated retrieval-augmented generation with knowledge graph construction and reasoning capabilities. LightRAG can work with your existing vector stores and LLMs.
+    - **Configure LLMs:** If you wish to use large language models (LLMs) from providers like OpenAI, Anthropic, or locally via Ollama (if installed), you can easily configure credentials and connections within n8n nodes or in services like Flowise, Open WebUI, and LightRAG.
 
 4.  **Check Monitoring (Optional):**
     - Visit Grafana (`grafana.yourdomain.com`) to see dashboards monitoring your system's performance (data sourced from Prometheus).
